@@ -1,8 +1,10 @@
 import React from "react";
 import styles from "./CreateCarForm.module.css";
 import { useForm } from "react-hook-form";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { CarsServices } from "../../../services/cars.services";
 
-const CreateCarForm = ({ setCars }) => {
+const CreateCarForm = () => {
     const {
         register,
         reset,
@@ -11,10 +13,21 @@ const CreateCarForm = ({ setCars }) => {
     } = useForm({
         mode: "onChange",
     });
+    const queryClient = useQueryClient();
+
+    const { mutate } = useMutation(
+        ["create car"],
+        (data) => CarsServices.create(data),
+        {
+            onSuccess: () => {
+                queryClient.invalidateQueries("cars");
+                reset();
+            },
+        }
+    );
 
     const createCar = (data) => {
-        setCars((prev) => [{ id: prev.length + 1, ...data }, ...prev]);
-        reset();
+        mutate(data);
     };
 
     return (

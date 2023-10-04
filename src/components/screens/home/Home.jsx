@@ -3,21 +3,17 @@ import { CarsServices } from "../../services/cars.services";
 import CarItem from "./car-item/CarItem";
 import CreateCarForm from "./create-car-form/CreateCarForm";
 import styles from "./Home.module.css";
+import { useQuery } from "@tanstack/react-query";
 
 const Home = () => {
-    const [cars, setCars] = useState([]);
+    const {data, isLoading, error} = useQuery(['cars'], () => CarsServices.getAll())
 
-    useEffect(() => {
-        const fetchData = async () => {
-            setCars(await CarsServices.getAll());
-        };
-        fetchData();
-    }, []);
+    if(isLoading) return <p>Loading...</p>
     return (
         <div className={styles.wrapper}>
             <h1>Cars catalog</h1>
-            <CreateCarForm setCars={setCars} />
-            {cars.map((item) => (
+            <CreateCarForm />
+            {data.map((item) => (
                 <CarItem key={item.id} item={item} />
             ))}
         </div>
