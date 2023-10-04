@@ -1,0 +1,18 @@
+.form {
+    margin: 5px 0;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 1vh;
+}
+.form input {
+    padding: 7px 10px;
+    border: none;
+    outline: none;
+    border-radius: 7px;
+    transition: border-color  .5s ease;
+    border: 2px solid transparent;
+}
+.form input:focus {
+    border-color: rgb(141, 160, 255);
+}

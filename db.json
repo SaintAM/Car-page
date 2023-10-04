@@ -1,0 +1,22 @@
+{
+    "cars": [
+        {
+            "id": 1,
+            "name": "BMW 5",
+            "price": 40000,
+            "image": "https://hips.hearstapps.com/hmg-prod/images/2021-bmw-m440i-xdrive-coupe-106-1602004316.jpg?crop=0.564xw:0.423xh;0.230xw,0.379xh&resize=1200:*"
+        },
+        {
+            "id": 2,
+            "name": "Volkswagen Tiguan",
+            "price": 45000,
+            "image": "https://quto.ru/imgs/2020/10/21/04/4235242/cd6abed0e3af65c4bae53e716a19ee3b6dc8f87f.jpg"
+        },
+        {
+            "id": 3,
+            "name": "Porche Macan gts",
+            "price": 50000,
+            "image": "https://cdn.motor1.com/images/mgl/EM8Eq/s1/4x3/2020-porsche-macan-gts.webp"
+        }
+    ]
+}
