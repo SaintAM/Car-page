@@ -16,7 +16,7 @@ const Home = () => {
     return (
         <div className={styles.wrapper}>
             <h1>Cars catalog</h1>
-            <CreateCarForm setCars={setCars}/>
+            <CreateCarForm setCars={setCars} />
             {cars.map((item) => (
                 <CarItem key={item.id} item={item} />
             ))}
