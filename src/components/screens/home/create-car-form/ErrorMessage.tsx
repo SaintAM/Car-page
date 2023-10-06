@@ -1,6 +1,6 @@
-import React from "react";
+import { FC } from "react";
 
-const ErrorMessage = ({ errors }) => {
+const ErrorMessage: FC<{ errors?: string }> = ({ errors }) => {
     if (!errors) return null;
     return <p style={{ color: "red" }}>Enter value</p>;
 };

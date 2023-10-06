@@ -1,10 +1,8 @@
-import React from "react";
 import styles from "./CreateCarForm.module.css";
 import { useForm } from "react-hook-form";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { CarsServices } from "../../../services/cars.services";
 import ErrorMessage from "./ErrorMessage";
 import { useCreateCar } from "./useCreateCar";
+import { ICarData } from "../../../../types/car.interface";
 
 const CreateCarForm = () => {
     const {
@@ -12,7 +10,7 @@ const CreateCarForm = () => {
         reset,
         handleSubmit,
         formState: { errors },
-    } = useForm({
+    } = useForm<ICarData>({
         mode: "onChange",
     });
 

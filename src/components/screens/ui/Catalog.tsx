@@ -1,7 +1,11 @@
-import React from "react";
+import { FC } from "react";
+import { ICar } from "../../../types/car.interface";
 import CarItem from "../home/car-item/CarItem";
 
-const Catalog = ({ data }) => {
+interface ICatalog {
+    data: ICar[];
+}
+const Catalog: FC<ICatalog> = ({ data }) => {
     return (
         <>
             {data.length ? (
